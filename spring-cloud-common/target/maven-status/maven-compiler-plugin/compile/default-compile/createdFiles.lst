@@ -1,0 +1,8 @@
+com\spw\practice\http\ResultCode.class
+com\spw\practice\http\Result.class
+com\spw\practice\api\consumer\Consumer.class
+com\spw\practice\api\consumer\Consumer$1.class
+com\spw\practice\api\consumer\Consumer$ConsumerBuilder.class
+com\spw\practice\api\producer\Producer$1.class
+com\spw\practice\api\producer\Producer$ProducerBuilder.class
+com\spw\practice\api\producer\Producer.class

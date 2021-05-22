@@ -1,0 +1,6 @@
+com\spw\practice\repository\ProducerRepository.class
+com\spw\practice\ProducerConsulApplication.class
+com\spw\practice\controller\ProducerController.class
+com\spw\practice\configuration\GlobalExceptionHandler.class
+com\spw\practice\service\ProducerService.class
+com\spw\practice\service\impl\ProducerServiceImpl.class

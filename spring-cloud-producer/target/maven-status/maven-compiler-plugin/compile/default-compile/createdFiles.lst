@@ -1,0 +1,10 @@
+com\spw\practice\feign\ConsumerFeign.class
+com\spw\practice\repository\ProducerRepository.class
+com\spw\practice\configuration\FeignInterceptor.class
+com\spw\practice\controller\ProducerController.class
+com\spw\practice\configuration\GlobalExceptionHandler.class
+com\spw\practice\ProducerApplication.class
+com\spw\practice\service\ProducerService.class
+com\spw\practice\service\impl\ProducerServiceImpl.class
+com\spw\practice\feign\ConsumerFallback.class
+com\spw\practice\configuration\FeignConfig.class

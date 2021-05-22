@@ -1,0 +1,5 @@
+com\spw\practice\service\impl\ConsumerServiceImpl.class
+com\spw\practice\controller\ConsumerController.class
+com\spw\practice\repository\ConsumerRepository.class
+com\spw\practice\ConsumerApplication.class
+com\spw\practice\service\ConsumerService.class
