@@ -3,7 +3,10 @@ spring:
     name: consumer
   cloud:
     config:
-      uri: http://localhost:6000
       fail-fast: true
+      label: master
+      discovery:
+        enabled: true
+        service-id: config
   profiles:
     active: two

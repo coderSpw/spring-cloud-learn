@@ -6,15 +6,72 @@ spring:
     name: config
   cloud:
     config:
+      label: master
       server:
-        native:
-          search-locations: classpath:/config
+#        native:
+#          search-locations: classpath:/config
         git:
-          uri: git@github.com:sunpeiwen/spring-cloud-learn.git
-          search-paths: ssh-learn
-          username: s553648727@163.com
+          uri: https://github.com/sunpeiwen/spring-cloud-learn.git
+          username: sunpeiwen
           password:
-        default-label: master
+          search-paths:
+            - spring-cloud-learn/spring-cloud-config/src/main/resources/config
+#          uri: git@github.com:sunpeiwen/spring-cloud-learn.git
+#          ignore-local-ssh-settings: true
+#          #hostKey: someHostKey
+#          #hostKeyAlgorithm: ssh-rsa
+#          private-key: |
+#                  -----BEGIN RSA PRIVATE KEY-----
+#                  MIIJKQIBAAKCAgEAx9gmkCKiAnPTT2+1U78sNzkxHXsH8/7iRmVA03VO+hAD/v3F
+#                  hb2o1su8H3aiAVEubkENhhft/Sa1qdnRMrbEneqX8GdlTLwGOybJGA9YghmwXmJR
+#                  DdaffHiLj55V9gCKPu7Y000gUVGaF3I+55g8q8YGXgeCu7hNV7ZKOPwSQ5d/w1zV
+#                  W2txnWj6yTOjsWNeTVKtnSUnNQVYBztuI5HAJKVCWUSTmFdSYXKwm7yX/8wM7ba2
+#                  HWWt22kTIc4/LpHnKhhgQxHQ8HIJvBSpoVJwb6KgzjZB80exr7IeJgOYmgc/aWw3
+#                  K2xbqRnfobNu0Jad1785NqQj9034mkbIYSEEHcnAlg60oVScN25e/doE//akZZQ3
+#                  nH5/VCER/JoYiI6FSGopeBjzfMjFYryF4fyaoSPkW/VwJWNjg1e0ZXUtTlr5QWp8
+#                  azbXSLLeTVhblownFyxH2NfKXZF3nx7M8wyD2j2pVidSvRfQ+3TmtDgb8dfDL9Ic
+#                  GFnY2vwY6ol1enq3A9/LW8kjp82T3+ZFVXrmuv8lTCoaouPsFl5EwyTfBg5PYAcq
+#                  8uLme03xxsQPcp8wj6b29C0XvZftz/TL/jWEtoGOeWXacuSaAqIlRIzLR9Z6/KkR
+#                  A2QYJNFfgmgqvpUTMwivsO8+0SU4el+C/k7OocIYRuJmyKDjT8t6FqEh1jECAwEA
+#                  AQKCAgEAkc9i651pSZLK5dWinpUIpM5EyLbAqcUZwbUU5HReCFPxJnZwTNGBxB7o
+#                  hqhfMcjSsL0kKeeBzEgXGfOEEJWLxZCqBUzbe25guX3mEXj44gvuRB9F9mvW99FY
+#                  OpSTMadZNuu8JgfLAaohXOQNg5rvAYG9mZOvTln9jHbDlupMRSbfoGI2hbpSLkCv
+#                  YmgcEkxnPNGLPPIjtirM/JHfHXK1l8dALrO7YNatk85Dj4299XQjJro+DBrpDAKR
+#                  ZAQA03C/ElawvZ7dLOJ3udP1pG/q+3jUDUFHQ0LXIVM7bg8Ho7KQENJVOoiYJDxt
+#                  j6TEwMp0JjsuenCukT1Bmwb0IvIc9nbLgjhurGB6Oso3LjU1Dsnezhhu/gDcCn5F
+#                  kLvfIoZa9u1rLD2oMG0hdI7gGYn3Y7GVD35eYAZeHfcrP507U9xVFlayQKPbgpDh
+#                  gfH1FPvtsZ0+DRxLgpq/tfAOgwcaC4ATUaIEF4OFFcvzK8c9KWjkoV9dRXNkatA0
+#                  h++MZZaAlrTvS19er45EJI71C4kQ8ABABm6OTOq7YBzybhEnKhhX9pVQZgTJC1Ut
+#                  lUaZIkgRhn5GZTTgtK4H+cwl6rVSUA+jZqdVUqhFs1jN4eaSnY12+Meo33SbM+tq
+#                  4laMO3kbPm26NJxJqT0eBfGw5tEON0OALl7a0fc1co02FWn3JHECggEBAP2IVyfm
+#                  PTe8aczC+OSawiNHyErS/xQvLONP2exebIHFV3jURrfrG96+wh9/obQfBYWJZUvR
+#                  /fNWt2fZ5iflZ+fOmhXnSuu0JAtwj5XesBIANbcxZwQZFddCebXikZuLBGQhGeZf
+#                  0aI5FzpR7HdQbWdAQLjo8wP+fi3QVpZ7Nc53BL3qdkJ7OE8ak19czkrPEPGUhAfI
+#                  5FoR0lvV/m6LvirqVZekJdFL+cDfJ/lizoZoDPNhkXj5vHkizB3XwtI3sQQhEw9T
+#                  y0Cl7+uryLQbKgHz5ka8Sn5m9+zdYHwA4uzqWDd3xrb1NsPuHCEJpHHL6/i++K6M
+#                  G5cMbr21hyvIIYUCggEBAMnKDKxOcWUF/XWR2FEqgrOyUTxH/y5JY74DKBrf3g5h
+#                  SnMtNoOhtZkVUHtruUhjCTh4My3S6GH2qZdUBIm22GioUYhOpyt4FVs0/3Kawimj
+#                  fdXSJ95SW9yF/qUFBph+MwJ1CHW0yAfEzWk2Y86lPA5784aotFBzpluI7H/oZY+6
+#                  yfpBZA2Hd7I8RcUgVTclaY4waoPvgYLPlJZEoQbA3YMR3uiBVqSYefKTJ+ksJtsH
+#                  YcWNIgNIkwm6VsjZM6JnxEa4ZhfYL+PakeTFwpld0A+vCocMfSm2ly1bl5swv4mF
+#                  iTG4vCM2tlPo+7L+ZkoiwuIfpBetKip+uGTX0z3s670CggEBAPi3W+kEcWHQMGpz
+#                  iv+Y4oMB1Hey7hG7BeopV7wOFZxpIBqlBItA1iJ6OK3144h0NlJ+KyVqaBrkIyB6
+#                  HtNctcYuY/LA6Dq6ifG/Bt0bjNbb5dZFXK4kfcyipgvMrNNOWYxw/JuHvHvMTgEk
+#                  hTm3aNw1qEi+Hkj4zIfdLlSJootdLwWwkTs+7kqL469Vt/qjkBeufqe0aHADs73r
+#                  /KIt7Ozk3frZSVA9nFGdmfWI/NnWEX5hZPis5jxf6qYMGE9p2voWCECtD2PoZalo
+#                  6IfnbhpkTq9t4BaIpQd1VUXRCM0qSEiB9Ctf+83SNT4j23LXfjKUBhoV0KspwynQ
+#                  fz5wIpECggEAIS65oMgRe5RdlqzSDp7X+WbUVv5b5yeoYEGyoaC4qlKzZHdF5KV9
+#                  8FuB7ZnMUSwAAyo4+EsbbaibQMhPKrpHogYzyh9s/Af2MxZm/1iVnzVEZxn09mlC
+#                  s+PQ+R/3crIl/zxxlLGSxzxErw2DoiKn2pXlePpbFHPAIoNEqM/1i4oi1qVUJ6lk
+#                  NIoWyxDDEptzXS93BJUpDfLGs2M7u5mRk5Env8ItFkoAm7Q5Nu3Mwe3X1R2dPz76
+#                  9vmOdd7Jz+YSb7K5Dyi8z1JM9XrTwlab9UhKieSy3F4rRAkwyBNfG+U6p1OClKPV
+#                  nbzNTyToez52H6smV8JhEbXe6q5XDXLdXQKCAQAe2CecKoYFpl5SFpFLYbd1f7hI
+#                  9SbtwsPzkepJO8NfFqlYwnANp0X8UXCvwaxIHG+A0wA8UXKTTfEvLrrKiYtfsJNz
+#                  Jvedi6KvniCYzd9NBp8enEwUVuU3DuHcwWDPNxqhv7bMGMljhpoCSaPtMmmhSAMc
+#                  KGto1q8P9QjAXKn3BkzY2x5WHaQSOgQPhCz16xEtsbVKOXx6v9Wve+sSfur5oGJV
+#                  Wca+gnR+GEGe8yRd4ruUbL9LyM0dN1ov25IMb1y8Waa4DqGA/UT8k1qUlIAS+yXp
+#                  DW7en50a4nCPtwOtx9VWhnPHX2VO/RyN7COLt0UUOWg7ONwEW9zAtSclVuoR
+#                  -----END RSA PRIVATE KEY-----
   profiles:
     active: git
 
