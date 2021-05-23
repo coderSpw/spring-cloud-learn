@@ -1,0 +1,29 @@
+server:
+  port: 6000
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        git:
+          uri: git@github.com:sunpeiwen/spring-cloud-learn.git
+          search-paths: ssh-learn
+          username: s553648727@163.com
+          password:
+        default-label: master
+  profiles:
+    active: git
+
+eureka:
+  instance:
+    hostname: config
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+

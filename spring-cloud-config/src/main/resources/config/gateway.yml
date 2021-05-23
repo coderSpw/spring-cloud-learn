@@ -8,7 +8,7 @@ spring:
     gateway:
       routes:
       - id: producer_route
-        uri: lb://cloud-producer/
+        uri: lb://producer/
         predicates:
         - Path=/api/**
         filters:
@@ -19,7 +19,7 @@ spring:
             redis-rate-limiter.replenishRate: 1   # 每秒填充速率
             redis-rate-limiter.burstCapacity: 20   # 桶的容量
       - id: consumer_route
-        uri: lb://cloud-consumer/
+        uri: lb://consumer/
         predicates:
         - Path=/**
         filters:

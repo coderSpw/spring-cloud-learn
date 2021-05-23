@@ -17,6 +17,7 @@
         <module>spring-cloud-consumer2</module>
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-gateway</module>
+        <module>spring-cloud-config</module>
     </modules>
     <packaging>pom</packaging>
 
