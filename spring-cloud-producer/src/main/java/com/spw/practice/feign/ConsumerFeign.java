@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * @Author spw
  * @Date 2021/5/22
  */
-@FeignClient(name = "consumer", configuration = FeignConfig.class, fallback = ConsumerFallback.class)
+@FeignClient(name = "cloud-consumer", configuration = FeignConfig.class, fallback = ConsumerFallback.class)
 public interface ConsumerFeign {
 
     /**

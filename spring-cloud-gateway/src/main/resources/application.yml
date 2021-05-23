@@ -8,21 +8,33 @@ spring:
     gateway:
       routes:
       - id: producer_route
-        uri: lb://producer/
+        uri: lb://cloud-producer/
         predicates:
-        - Path=/prodapi/**
+        - Path=/api/**
         filters:
-        - StripPrefix=1
+        - StripPrefix=1  #查找服务去掉 /api
+        - name: RequestRateLimiter  #限流
+          args:
+            key-resolver: '#{@hostAddrKeyResolver}'  #注入bean
+            redis-rate-limiter.replenishRate: 1   # 每秒填充速率
+            redis-rate-limiter.burstCapacity: 20   # 桶的容量
       - id: consumer_route
-        uri: lb://consumer/
+        uri: lb://cloud-consumer/
         predicates:
-        - Path=/conapi/**
+        - Path=/**
         filters:
-        - StripPrefix=0
+        - PrefixPath=/consumer #查找服务自定加上/consumer
       discovery:
         locator:
           lower-case-service-id: true
           enabled: true
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: 192.168.124.9
+    port: 6379
+    database: 0
+
 
 eureka:
   instance:
@@ -31,4 +43,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
 

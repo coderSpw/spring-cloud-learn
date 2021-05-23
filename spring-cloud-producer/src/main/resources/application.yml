@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: producer
+    name: cloud-producer
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.124.9:3306/mydb?characterEncoding=utf-8&useUnicode=true&useSSL=false&serverTimeZone=GMT%2B8
@@ -19,7 +19,7 @@ spring:
 
 eureka:
   instance:
-    hostname: producer
+    hostname: cloud-producer
     prefer-ip-address: true
   client:
     service-url:
@@ -31,6 +31,9 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 2000
-        readTimeout: 2000
+        connectTimeout: 10000
+        readTimeout: 10000
+hystrix:
+  metrics:
+    polling-interval-ms:
 

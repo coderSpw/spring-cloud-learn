@@ -8,15 +8,3 @@
 out
 gen
 target
-.idea/vcs.xml
-spring-cloud-common/target/
-spring-cloud-consumer/target/
-spring-cloud-consumer2/target/
-spring-cloud-gateway/target/
-spring-cloud-producer-consul/target/
-spring-cloud-producer-zookeeper/target/
-spring-cloud-producer/target/
-spring-cloud-server-eureka/target/
-spring-cloud-zuul/target/
-/.idea/
-/spring-cloud-practice.iml

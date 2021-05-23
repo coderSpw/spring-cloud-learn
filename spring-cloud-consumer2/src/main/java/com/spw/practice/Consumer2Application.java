@@ -16,8 +16,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableCircuitBreaker
 @SpringBootApplication
 @EntityScan(basePackages = "com.spw.practice.api.consumer")
-public class ConsumerApplication {
+public class Consumer2Application {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(Consumer2Application.class, args);
     }
 }

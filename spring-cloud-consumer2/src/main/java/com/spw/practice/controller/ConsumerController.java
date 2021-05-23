@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Description 服务消费 - 入口
  * @Author spw
@@ -50,16 +52,19 @@ public class ConsumerController {
     @HystrixCommand(fallbackMethod = "fallback"
         , commandProperties = {
             @HystrixProperty(name = "execution.isolation.strategy", value = "THREAD"),
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
             @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2")}
-        , threadPoolKey = "consumer"
         , threadPoolProperties = {
-            @HystrixProperty(name = "coreSize", value = "5"),
-            @HystrixProperty(name = "maximumSize", value = "10"),
-            @HystrixProperty(name = "maxQueueSize", value = "10")}
+            @HystrixProperty(name = "coreSize", value = "1"),
+            @HystrixProperty(name = "maxQueueSize", value = "2")}
     )
     public String port() {
+        /*try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.getMessage();
+        }*/
         return "port: " + port;
     }
 
