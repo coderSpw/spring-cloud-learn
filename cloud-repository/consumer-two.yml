@@ -1,0 +1,28 @@
+server:
+  port: 8102
+
+spring:
+  application:
+    name: consumer
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.124.9:3306/mydb?characterEncoding=utf-8&useUnicode=true&useSSL=false&serverTimeZone=GMT%2B8
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+eureka:
+  instance:
+    hostname: consumer
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
