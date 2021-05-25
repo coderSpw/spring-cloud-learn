@@ -10,6 +10,18 @@ spring:
         service-id: config
   profiles:
     active: two
+  rabbitmq:
+    host: 192.168.124.9
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 eureka:
   instance:

@@ -19,8 +19,15 @@ spring:
           timeout: 30
           force-pull: true
           skip-ssl-validation: true
+  rabbitmq:
+    host: 192.168.124.9
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
 #  profiles:
 #    active: git
+
 
 eureka:
   instance:
@@ -30,5 +37,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/
 
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
 
 

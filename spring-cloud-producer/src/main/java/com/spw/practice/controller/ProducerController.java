@@ -5,6 +5,8 @@ import com.spw.practice.feign.ConsumerFeign;
 import com.spw.practice.http.Result;
 import com.spw.practice.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @Author spw
  * @Date 2021/5/22
  */
+@RefreshScope
 @RestController
 @RequestMapping("/producer")
 public class ProducerController {
@@ -20,6 +23,9 @@ public class ProducerController {
 
     @Autowired
     private ConsumerFeign consumerFeign;
+
+    @Value("${bus.test.id}")
+    private Integer id;
 
     /**
      * 根据id查询
@@ -48,5 +54,11 @@ public class ProducerController {
     @RequestMapping("/port")
     public String getPort() {
         return consumerFeign.port();
+    }
+
+
+    @RequestMapping("/bus-test")
+    public Integer testId() {
+        return this.id;
     }
 }

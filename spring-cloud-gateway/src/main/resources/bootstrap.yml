@@ -9,6 +9,12 @@ spring:
       discovery:
         enabled: true
         service-id: config
+  rabbitmq:
+    host: 192.168.124.9
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
 
 eureka:
   instance:
@@ -17,3 +23,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

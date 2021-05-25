@@ -1,9 +1,11 @@
 package com.spw.practice.filter;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -22,6 +24,10 @@ import java.util.List;
 @Slf4j
 @Component
 public class MyGlobalFilter implements GlobalFilter,Ordered {
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
@@ -32,6 +38,7 @@ public class MyGlobalFilter implements GlobalFilter,Ordered {
             log.error("请求路径:{}, token is empty", request.getURI().getPath());
             return response.writeWith(Mono.just(response.bufferFactory().wrap("token is empty".getBytes(StandardCharsets.UTF_8))));
         }
+        //防止重复点击
         log.info("token:{}", token);
         return chain.filter(exchange);
     }
