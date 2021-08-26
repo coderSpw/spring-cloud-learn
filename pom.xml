@@ -18,6 +18,9 @@
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-config</module>
+        <module>spring-cloud-stream-producer</module>
+        <module>spring-cloud-stream-consumer01</module>
+        <module>spring-cloud-stream-consumer02</module>
     </modules>
     <packaging>pom</packaging>
 

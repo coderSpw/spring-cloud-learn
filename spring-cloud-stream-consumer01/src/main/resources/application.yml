@@ -1,0 +1,34 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: stream-consumer01
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 123.57.86.182
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        input:
+          destination: myExchange     # mq交换机
+          content-type: application/json #数据类型
+          binder: defaultRabbit
+          group: groupA
+
+eureka:
+  instance:
+    ip-address: true
+    hostname: stream-consumer01
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+

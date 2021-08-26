@@ -1,0 +1,41 @@
+server:
+  port: 8801
+
+spring:
+  application:
+    name: stream-producer
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 123.57.86.182
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        output:
+          destination: myExchange
+          content-type: application/json
+          binder: defaultRabbit
+
+eureka:
+  instance:
+    hostname:  stream-producer
+    ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"
+
+
+
+

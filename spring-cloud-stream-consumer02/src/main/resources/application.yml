@@ -1,0 +1,33 @@
+server:
+  port: 8803
+spring:
+  application:
+    name: stream-consumer02
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 123.57.86.182
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        input:
+          destination: myExchange
+          content-type: application/json
+          binder: defaultRabbit
+          group: groupA
+
+eureka:
+  instance:
+    hostname: stream-consumer02
+    ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+
