@@ -12,7 +12,7 @@ spring:
 #          search-locations: classpath:/config
         git:
           uri: https://github.com/sunpeiwen/spring-cloud-learn.git
-          username: spw
+          username: coderSpw
           password:
           search-paths: cloud-repository
           clone-on-start: true
@@ -20,7 +20,7 @@ spring:
           force-pull: true
           skip-ssl-validation: true
   rabbitmq:
-    host: 192.168.124.9
+    host: 123.57.86.182
     port: 5672
     username: guest
     password: guest

@@ -9,7 +9,7 @@ spring:
         enabled: true
         service-id: config
   rabbitmq:
-    host: 192.168.124.9
+    host: 123.57.86.182
     port: 5672
     username: guest
     password: guest
