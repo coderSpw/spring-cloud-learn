@@ -15,6 +15,12 @@ spring:
     hibernate:
       ddl-auto: create
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  zipkin:
+    base-url: http://123.57.86.182:9411
+  sleuth:
+      sampler:
+        probability: 1
+        rate: 30   # 30s采集一次
 bus:
   test:
     id: 5
