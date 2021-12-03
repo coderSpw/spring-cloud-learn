@@ -1,0 +1,19 @@
+server:
+  port: 80
+spring:
+  application:
+    name: service-nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 123.57.86.182:8848
+        #namespace: 3d0e7c0f-ed03-4f6a-9e5f-64097c13d2a4
+        namespace: 3e057fde-b61d-4d3d-a564-f1ec333b4cdb
+      config:
+        server-addr: 123.57.86.182:8848
+        #namespace: 3d0e7c0f-ed03-4f6a-9e5f-64097c13d2a4
+        namespace: 3e057fde-b61d-4d3d-a564-f1ec333b4cdb
+        file-extension: yaml
+
+
+
